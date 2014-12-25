@@ -1,1 +1,1 @@
-web: python ./donations/manage.py runserver
+web: gunicorn donations.wsgi:application --log-file -
