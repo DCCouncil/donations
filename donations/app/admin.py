@@ -17,7 +17,7 @@ class DonationAdmin(admin.ModelAdmin):
 
     def queryset(self, request):
         """Limit Pages to those that belong to the request's user."""
-        qs = super(DonationAdmin, self).queryset(request)
+        qs = super(DonationAdmin, self).get_queryset(request)
         if request.user.is_superuser:
             # It is mine, all mine. Just return everything.
             return qs

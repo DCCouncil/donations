@@ -1,8 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
 <h1>Donations</h1>
-<ul>
+<table id="donations" class="display" cellspacing="0" width="100%">
+
+<thead>
+<tr>
+<th>User</th>
+<th>Description</th>
+<th>Amount</th>
+<th>Donor</th>
+<th>Donation Date</th>
+</tr>
+</thead>
+
 {% for donation in object_list %}
-	{{donation}}
-{% empty %}
-    <li>No donations yet.</li>
+<tr>
+<td>{{donation.created_by}}</td>
+<td>{{donation.description}}</td>
+<td>{{donation.amount}}</td>
+<td>{{donation.donor}}</td>
+<td>{{donation.donation_date}}</td>
+</tr>
 {% endfor %}
-</ul>
+</table>
+
+{% endblock %}
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    $('#donations').DataTable();
+} );
+</script>
+{% endblock %}
