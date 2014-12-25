@@ -1,1 +1,1 @@
-web: python donations/manage.py runserver
+web: python ./donations/manage.py runserver
