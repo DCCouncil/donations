@@ -1,0 +1,1 @@
+web: python donations/manage.py runserver

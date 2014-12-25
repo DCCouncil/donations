@@ -1,0 +1,8 @@
+<h1>Donations</h1>
+<ul>
+{% for donation in object_list %}
+	{{donation}}
+{% empty %}
+    <li>No donations yet.</li>
+{% endfor %}
+</ul>
