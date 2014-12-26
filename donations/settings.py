@@ -92,7 +92,7 @@ STATICFILES_DIRS = (
     ),
 )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-SSLIFY_DISABLE=True
+SSLIFY_DISABLE=False
 
 # PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 # TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, 'templates'),)
