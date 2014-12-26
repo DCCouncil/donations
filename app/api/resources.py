@@ -17,3 +17,4 @@ class DonationResource(ModelResource):
         queryset = Donation.objects.all()
         allowed_methods = ['get']
         authorization = ReadOnlyAuthorization()
+        resources = "donations"
