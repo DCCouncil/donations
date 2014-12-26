@@ -20,17 +20,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False #os.environ.get("DEBUG", True)
+DEBUG = True #os.environ.get("DEBUG", True)
 
-TEMPLATE_DEBUG = False #os.environ.get("DEBUG", True)
+TEMPLATE_DEBUG = True #os.environ.get("DEBUG", True)
 
 ALLOWED_HOSTS = ["*"]
 
+from registration_defaults.settings import *
 
 # Application definition
 
 INSTALLED_APPS = (
     'django_admin_bootstrapped',
+    "registration_defaults",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tastypie',
+    'registration',
     'app',
 )
 
@@ -61,10 +64,10 @@ WSGI_APPLICATION = 'donations.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 # Internationalization
@@ -92,23 +95,33 @@ STATICFILES_DIRS = (
     ),
 )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-SSLIFY_DISABLE=False
 
 # PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-# TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, 'templates'),)
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'app/templates'), REGISTRATION_TEMPLATE_DIR,)
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
 )
 
+
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# Parse database configuration from $DATABASE_URL
-import dj_database_url
-DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
-DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
+# For Django-Registration
+ACCOUNT_ACTIVATION_DAYS = 7
 
+# Parse database configuration from $DATABASE_URL
+# import dj_database_url
+# DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
+# DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PWD')
+DEFAULT_FROM_EMAIL = 'Council Donations'
 
 # API
 

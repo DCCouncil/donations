@@ -9,10 +9,16 @@ from app.api.resources import DonationResource
 v1_api = Api(api_name='v1')
 v1_api.register(DonationResource())
 
+from app.views import Register
+from app.forms import UserRegistrationForm
+from registration.backends.default.views import RegistrationView
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', 'app.views.home', name='home'),
+    url(r'^about/$', 'app.views.about', name='about'),
+    url(r'accounts/register/$', RegistrationView.as_view(form_class = UserRegistrationForm), name = 'registration_register'),    url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^donations/', include('app.urls', namespace="app")),
     url(r'^api/', include(v1_api.urls)),
