@@ -91,7 +91,7 @@ STATICFILES_DIRS = (
         'static',
     ),
 )
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = '/static/'
 
 # PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 # TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, 'templates'),)
