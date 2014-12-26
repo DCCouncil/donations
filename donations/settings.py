@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tastypie',
     'app',
 )
 
@@ -106,3 +107,8 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 import dj_database_url
 DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
 DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
+
+
+# API
+
+TASTYPIE_DEFAULT_FORMATS = ['json']
