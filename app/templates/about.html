@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>About Council Donations</h1>
+<p>Pursuant to D.C. Official Code § 1-329.01, the Council may accept donations for the Council to "carry out its authorized functions or duties." For the past few years, the Council has used a combination of spreadsheets and Sharepoint-based forms to collect the data. The information was then collected and compiled in Excel, and converted to CSV and PDF formats. In Council Period 21, however, the Council will collect the data using this site and the data will publish automatically in a web-friendly format.</p>
+<h2>API Documentation</h2>
+<p>The Council Donations site is built using Django (see the source code hosted <a href="https://github.com/dccouncil/donations">on github</a>). It uses <a href="http://django-tastypie.readthedocs.org/">django-tastypie</a> to create a simple API.</p>
+<p>The API is found at <a href="https://donationdisclosure.herokuapp.com/api/v1">https://donationdisclosure.herokuapp.com/api/v1</a></p>
+<h3>GET /donations</h3>
+<p>Returns a JSON response with the collection of all published donations made to the Council.</p>
+<h4>Examples</h4>
+<p>
+<code>https://donationdisclosure.herokuapp.com/api/v1/donations</code><br>
+<code>https://donationdisclosure.herokuapp.com/api/v1/donations/1</code><br>
+</p>
+<h2>License</h2>
+<p>The information and source code is in the public domain within the United States. Additionally, all copyright and related rights in the work worldwide are wavied through the CC0 1.0 Universal public domain dedication.</p>
+{% endblock %}

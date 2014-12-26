@@ -110,17 +110,17 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # For Django-Registration
 ACCOUNT_ACTIVATION_DAYS = 7
 
-# Parse database configuration from $DATABASE_URL
-# import dj_database_url
-# DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
-# DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
+Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
+DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
 
 
 EMAIL_USE_TLS = True
-EMAIL_HOST = os.environ.get('EMAIL_HOST')
-EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PWD')
+EMAIL_HOST = os.environ.get('POSTMARK_SMTP_SERVER')
+EMAIL_PORT = 25
+EMAIL_HOST_USER = os.environ.get('POSTMARK_API_KEY')
+EMAIL_HOST_PASSWORD = os.environ.get('POSTMARK_API_KEY')
 DEFAULT_FROM_EMAIL = 'Council Donations'
 
 # API

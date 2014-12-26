@@ -2,6 +2,9 @@ Django==1.7.1
 dj-database-url==0.3.0
 dj-static==0.0.6
 django-admin-bootstrapped==2.3.1
+django-appconf==0.6
+django-registration-defaults==0.4.4
+django-registration-redux==1.1
 django-sslify==0.2.4
 django-tastypie==0.12.1
 gunicorn==19.1.1
