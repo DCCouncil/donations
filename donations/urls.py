@@ -16,4 +16,4 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^donations/', include('app.urls', namespace="app")),
     url(r'^api/', include(v1_api.urls)),
-) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+)

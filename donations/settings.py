@@ -91,7 +91,8 @@ STATICFILES_DIRS = (
         'static',
     ),
 )
-# STATIC_ROOT = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+SSLIFY_DISABLE=True
 
 # PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 # TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, 'templates'),)
@@ -112,3 +113,9 @@ DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
 # API
 
 TASTYPIE_DEFAULT_FORMATS = ['json']
+
+# try to load local_settings.py if it exists
+try:
+  from local_settings import *
+except Exception as e:
+  pass
