@@ -20,9 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True #os.environ.get("DEBUG", True)
+DEBUG = False
 
-TEMPLATE_DEBUG = True #os.environ.get("DEBUG", True)
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -118,10 +118,12 @@ DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = os.environ.get('POSTMARK_SMTP_SERVER')
-EMAIL_PORT = 25
+EMAIL_PORT = 2525
 EMAIL_HOST_USER = os.environ.get('POSTMARK_API_KEY')
 EMAIL_HOST_PASSWORD = os.environ.get('POSTMARK_API_KEY')
 DEFAULT_FROM_EMAIL = 'vzvenyach@dccouncil.us'
+
+LOGIN_REDIRECT_URL = '/admin'
 
 # API
 
