@@ -121,7 +121,7 @@ EMAIL_HOST = os.environ.get('POSTMARK_SMTP_SERVER')
 EMAIL_PORT = 25
 EMAIL_HOST_USER = os.environ.get('POSTMARK_API_KEY')
 EMAIL_HOST_PASSWORD = os.environ.get('POSTMARK_API_KEY')
-DEFAULT_FROM_EMAIL = 'Council Donations'
+DEFAULT_FROM_EMAIL = 'noreply@dccouncil.us'
 
 # API
 
