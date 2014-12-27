@@ -33,6 +33,10 @@ def user_created(sender, user, request, **kwargs):
     user.first_name=form.data['first_name']
     user.last_name=form.data['last_name']
     user.is_staff = True
+    user.user_permissions.clear()
+    user.has_perm('app.add_donation')
+    user.has_perm('app.change_donation')
+    user.has_perm('app.delete_donation')
     user.save()
  
 user_registered.connect(user_created)
